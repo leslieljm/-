@@ -41,7 +41,7 @@ $('.layui-form').submit(function(e) {
             const {status} = res
             if (status !== 0) return layer.msg("更新用户信息失败！")
             layer.msg("更新用户信息成功！");
-            // 因为目前在iframe开的dom窗口上，所以window.parent这样去调getUserInfo()方法，而且iframe限制getUserInfo()方法必须用function xxx这样的方式去挂
+            // 调用父页面渲染函数。因为目前在iframe开的dom窗口上，所以window.parent这样去调getUserInfo()方法，而且iframe限制getUserInfo()方法必须用function xxx这样的方式去挂
             window.parent.getUserInfo()
         }
     })
