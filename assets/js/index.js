@@ -1,5 +1,5 @@
 // 获取用户基本信息
-const getUserInfo = () => {
+function getUserInfo() {
     $.ajax({
         type: 'GET',
         url: '/my/userinfo',
@@ -10,6 +10,7 @@ const getUserInfo = () => {
         success: res => {
             // console.log(res);
             const {status, data} = res
+            // 请求失败不调用renderAvatar()函数
             if (status !== 0) return layui.layer.msg("数据请求失败！")
             renderAvatar(data)
         }
